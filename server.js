@@ -6,6 +6,7 @@ import cors from "cors"
 import products from "./Products.js"
 
 
+
 //App Config
 const app=express();
 const port=process.env.PORT || 9000;
@@ -65,7 +66,7 @@ app.post("/admin/update", async (req,res)=>{
     
     const filter = {productname:product.productname};
    
-    const update = {price:product.price, instock:product.instock};
+    const update = {price:product.price, stock:product.stock , instock:product.instock};
     let doc = await products.findOneAndUpdate(filter, update, {
         new: true
       });
@@ -85,6 +86,30 @@ app.post("/admin/delete",(req,res)=>{
                 message.type = 'error';
         }
     });
+})
+
+app.post("/user/buy", async (req,res)=>{
+
+    const reqproduct=req.body;
+
+    let object=products.findOne(  {productname:reqproduct.productname}, async (err,data)=>{
+
+        if(!err)
+        {
+            let doc = await products.findOneAndUpdate({productname:reqproduct.productname}, {stock:data.stock-reqproduct.stock}, {
+                new: true
+              });
+        }
+         
+
+    }  );
+
+    res.send("BUYED");
+
+
+
+    
+    
 })
 
 

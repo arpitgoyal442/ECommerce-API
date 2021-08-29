@@ -5,6 +5,7 @@ import mongoose from "mongoose";
 const ProductsSchema= mongoose.Schema({
     productname:String,
     price:Number,
+    stock:Number,
     instock:Boolean,
 
 });
