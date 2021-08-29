@@ -14,7 +14,7 @@
 <h4>Getting all Products</h4>
 <img src="https://user-images.githubusercontent.com/56843176/131240042-cc517732-d3c2-48d3-afb0-4415c2a9e799.png" />
 <h4>User buying "shoes" stock buying = 2</h4>
-<img src=" https://user-images.githubusercontent.com/56843176/131240045-fc6d90d6-dd98-4377-9f96-0b9dabd233d3.png" />
+<img src="https://user-images.githubusercontent.com/56843176/131240045-fc6d90d6-dd98-4377-9f96-0b9dabd233d3.png" />
 <h4>After Buying Stock of "Shoes" gets updated</h4>
 <img src="https://user-images.githubusercontent.com/56843176/131240046-638a7305-129e-4e57-974f-6702dcf7a794.png" />
 <h4>Admin Udating product "shoes"</h4>
