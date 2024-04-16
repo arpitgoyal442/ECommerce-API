@@ -1,12 +1,11 @@
 
 
-const stripe=require('stripe')("sk_test_51Ns4WFSFwU95K8cx45eecc6O519QjmJWH6fby9PhWdik9TJJTV7JHMsXE7QXDIrkpEUJXu74mXbtzNGVNfQVF5yh006CHxMOW2")
+const stripe=require('stripe')(process.env.STRIPE_SECRET)
 const { v4 : uuidv4 } =require( 'uuid');
 const makePayment=async (req,res,next)=>{
 
     let cartItems=req.body.cartItems
     let lineItems=[];
-
     for(let i=0;i<cartItems.length;i++){
 
         let product=cartItems[i];
@@ -25,10 +24,7 @@ const makePayment=async (req,res,next)=>{
             quantity:1
 
         })
-
     }
-
-   
 
     try {
 
@@ -38,7 +34,10 @@ const makePayment=async (req,res,next)=>{
             mode:"payment",
             line_items:lineItems,
             success_url:'http://localhost:3000/success',
-            cancel_url:'http://localhost:3000/cancel'
+            cancel_url:'http://localhost:3000/cancel',
+         
+           
+
         })
 
 
